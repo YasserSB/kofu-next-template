@@ -26,6 +26,6 @@ It is project template for my `NextJS` projects
 2. Copy `.env.example` to `.env` or `.env.local`.
 3. After that:
    - run `yarn dev` for local development or,
-   - direct run production run `yarn build` then `yarn start` or,
+   - run `yarn build` then `yarn start` for instant production or,
    - run `docker compose -f docker-compose.dev.yml up --build -d` for docker development (available hot reload) or,
    - run `docker compose -f docker-compose.prod.yml up --build -d` for docker production.
