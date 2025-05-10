@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      // All Import
+      "@/*": ["./*"],
+
+      // App UI
+      "@/styles/*": ["app/_styles/*"],
+      "@/assets/*": ["app/_assets/*"],
+      "@/components/*": ["app/_components/*"],
+
+      // Hooks
+      "@/hooks": ["app/_hooks"],
+      "@/stores": ["app/_stores"],
+
+      // Lib
+      "@/constants": ["app/_lib/constants"],
+      "@/analytics": ["app/_lib/analytics"],
+      "@/api": ["app/_lib/api"],
+      "@/utils": ["app/_lib/utils"],
+      "@/validators": ["app/_lib/validators"],
+      "@/configs": ["app/_lib/configs"]
+    }
+  },
+  "include": [
+    "declarations/svgr.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}
