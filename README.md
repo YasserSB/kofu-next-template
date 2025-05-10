@@ -28,4 +28,4 @@ It is project template for my `NextJS` projects
    - run `yarn dev` for local development or,
    - direct run production run `yarn build` then `yarn start` or,
    - run `docker compose -f docker-compose.dev.yml up --build -d` for docker development (available hot reload) or,
-   - run `docker compose -f docker-compose.prod.yml up --build -d` or for docker production.
+   - run `docker compose -f docker-compose.prod.yml up --build -d` for docker production.
