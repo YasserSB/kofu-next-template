@@ -8,21 +8,21 @@ import StoreProvider from './_lib/configs/redux/ReduxProvider/ReduxProvider';
 import { ReactQueryProvider } from './_lib/configs';
 
 type TRootLayout = Readonly<{
-  children: ReactNode;
+	children: ReactNode;
 }>;
 
 const RootLayout: NextPage<TRootLayout> = ({ children }) => {
-  return (
-    <html lang='en'>
-      <body className={cn('antialiased', inter.variable)}>
-        <ReactQueryProvider>
-          <StoreProvider>
-            <AntdRegistry>{children}</AntdRegistry>
-          </StoreProvider>
-        </ReactQueryProvider>
-      </body>
-    </html>
-  );
+	return (
+		<html lang='en'>
+			<body className={cn('antialiased', inter.variable)}>
+				<ReactQueryProvider>
+					<StoreProvider>
+						<AntdRegistry>{children}</AntdRegistry>
+					</StoreProvider>
+				</ReactQueryProvider>
+			</body>
+		</html>
+	);
 };
 
 export default RootLayout;

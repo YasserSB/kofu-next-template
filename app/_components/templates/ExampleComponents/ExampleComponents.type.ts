@@ -1,3 +1,3 @@
 export interface IExampleComponentsLayout {
-  children?: React.ReactNode;
+	children?: React.ReactNode;
 }
