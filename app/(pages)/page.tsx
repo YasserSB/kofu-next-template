@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { ExampleComponents } from '../_components/templates/ExampleComponents/ExampleComponents';
+import { ExampleComponents } from '@/components/templates';
 
 export const metadata: Metadata = {
 	title: 'Kofu Next Template',
