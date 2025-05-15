@@ -5,6 +5,7 @@ export const metadata: Metadata = {
 	title: 'Kofu Next Template',
 	description: 'NextJS CI/CD Template',
 };
+
 const Home = () => {
 	return (
 		<main>

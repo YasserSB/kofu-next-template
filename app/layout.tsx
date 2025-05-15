@@ -1,11 +1,10 @@
+import { ReactNode } from 'react';
 import type { NextPage } from 'next';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import '@/assets/styles/global.css';
-import { inter } from './_lib/fonts';
-import { ReactNode } from 'react';
+import { inter } from '@/fonts';
 import { cn } from '@/utils';
-import StoreProvider from './_lib/configs/redux/ReduxProvider/ReduxProvider';
-import { ReactQueryProvider } from './_lib/configs';
+import { ReactQueryProvider, StoreProvider } from '@/configs';
 
 type TRootLayout = Readonly<{
 	children: ReactNode;

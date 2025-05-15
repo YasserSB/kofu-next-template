@@ -38,7 +38,8 @@
 			"@/api": ["app/_lib/api"],
 			"@/utils": ["app/_lib/utils"],
 			"@/validators": ["app/_lib/validators"],
-			"@/configs": ["app/_lib/configs"]
+			"@/configs": ["app/_lib/configs"],
+			"@/fonts": ["app/_lib/fonts"]
 		}
 	},
 	"include": [
