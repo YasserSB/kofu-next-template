@@ -7,21 +7,19 @@ import { cn } from '@/utils';
 import { ReactQueryProvider, StoreProvider } from '@/configs';
 
 type TRootLayout = Readonly<{
-	children: ReactNode;
+  children: ReactNode;
 }>;
 
-const RootLayout: NextPage<TRootLayout> = ({ children }) => {
-	return (
-		<html lang='en'>
-			<body className={cn('antialiased', inter.variable)}>
-				<ReactQueryProvider>
-					<StoreProvider>
-						<AntdRegistry>{children}</AntdRegistry>
-					</StoreProvider>
-				</ReactQueryProvider>
-			</body>
-		</html>
-	);
-};
+const RootLayout: NextPage<TRootLayout> = ({ children }) => (
+  <html lang="en">
+    <body className={cn('antialiased', inter.variable)}>
+      <ReactQueryProvider>
+        <StoreProvider>
+          <AntdRegistry>{children}</AntdRegistry>
+        </StoreProvider>
+      </ReactQueryProvider>
+    </body>
+  </html>
+);
 
 export default RootLayout;

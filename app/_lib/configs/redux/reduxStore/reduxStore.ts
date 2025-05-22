@@ -1,13 +1,11 @@
 import { counterSlice } from '@/app/_stores';
 import { configureStore } from '@reduxjs/toolkit';
 
-export const makeStore = () => {
-	return configureStore({
-		reducer: {
-			counter: counterSlice.reducer,
-		},
-	});
-};
+export const makeStore = () => configureStore({
+  reducer: {
+    counter: counterSlice.reducer,
+  },
+});
 
 // Infer the type of makeStore
 export type AppStore = ReturnType<typeof makeStore>;
