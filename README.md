@@ -1,6 +1,6 @@
 # Kofu Next Template
 
-It is project template for my `NextJS` projects
+It is project template for `NextJS` projects
 
 ## Code Convention
 
@@ -9,16 +9,19 @@ It is project template for my `NextJS` projects
 - Variables/Constants should named with `camelCase`.
 - Types should named with `PascalCase`.
 - Boolean variable should have `is` or `has` e.g. `isLogin` or `hasSpacesuit`.
-- In english.
-- Name base on function
+- Write code in english.
+- Name based on function
 
 ### Style Guide
 
 - Use type inference.
+- Use yarn for manage dependencies.
 - Use [AirBNB styles](https://github.com/airbnb/javascript).
 - Removing unused code.
 - Use atomic design.
-- Use named export on Constants/Variable.
+- Use named export on Constants/Variable/Components.
+- Dont use slash at end of url in env for concistency.
+- Use internationalization for string UI.
 
 ## How to run
 
