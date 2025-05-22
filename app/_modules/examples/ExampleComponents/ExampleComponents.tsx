@@ -106,9 +106,7 @@ export const ExampleComponents: FC = () => {
                   className="block w-full rounded bg-cyan-500 p-2 text-white/90"
                   rel="noreferrer"
                 >
-                  {item.name}
-                  :
-                  {item.url}
+                  {item.name}:{item.url}
                 </a>
               </li>
             );

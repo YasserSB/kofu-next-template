@@ -9,8 +9,9 @@ export interface IgetPokeList {
   results: { name: string; url: string }[];
 }
 
-export const getPokeList = async (): Promise<IgetPokeList> => new Promise((resolve, reject) => {
-  axiosInstance({ method: 'GET', url: `${URL}/pokemon/?limit=2000` })
-    .then((response) => resolve(response.data))
-    .catch((error) => reject(error));
-});
+export const getPokeList = async (): Promise<IgetPokeList> =>
+  new Promise((resolve, reject) => {
+    axiosInstance({ method: 'GET', url: `${URL}/pokemon/?limit=2000` })
+      .then((response) => resolve(response.data))
+      .catch((error) => reject(error));
+  });

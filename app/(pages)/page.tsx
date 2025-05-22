@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 const Home = () => (
   <main>
     <ExampleComponents />
+    {process.env.NEXT_PUBLIC_POKEAPI_URL}
   </main>
 );
 

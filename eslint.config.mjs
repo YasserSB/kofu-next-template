@@ -22,6 +22,8 @@ const eslintConfig = [
   {
     rules: {
       'import/extensions': 'off',
+      'implicit-arrow-linebreak': 'off',
+      'react/jsx-one-expression-per-line': 'off',
       'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
       'react/react-in-jsx-scope': 'off',
       'import/prefer-default-export': 'off',
