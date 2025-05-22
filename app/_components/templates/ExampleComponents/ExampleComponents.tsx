@@ -1,7 +1,7 @@
 'use client';
 
 import { useCounter } from '@/app/_hooks';
-import { usePokeList } from '@/app/_hooks/use-pokeList/use-pokeList';
+import { usePokeList } from '@/hooks';
 import React, { FC } from 'react';
 import { Icons } from '../../atoms';
 import { useVirtualizer } from '@tanstack/react-virtual';
