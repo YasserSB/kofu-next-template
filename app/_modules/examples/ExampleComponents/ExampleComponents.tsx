@@ -4,7 +4,7 @@ import { useCounter, usePokeList } from '@/app/_hooks';
 import React, { FC } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useTranslations } from 'next-intl';
-import { Icons } from '../../atoms';
+import { Icons } from '@/app/_components/atoms/Icons';
 
 import { ExampleComponentsLoading } from './ExampleComponents.loading';
 import { ExampleComponentsError } from './ExampleComponents.error';

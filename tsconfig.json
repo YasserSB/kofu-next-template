@@ -27,6 +27,7 @@
       "@/styles/*": ["app/_styles/*"],
       "@/assets/*": ["app/_assets/*"],
       "@/components/*": ["app/_components/*"],
+      "@/modules/*": ["app/_modules/*"],
 
       // Hooks
       "@/hooks": ["app/_hooks"],
@@ -35,7 +36,7 @@
       // Lib
       "@/constants": ["app/_lib/constants"],
       "@/analytics": ["app/_lib/analytics"],
-      "@/api": ["app/_lib/api"],
+      "@/api": ["app/_lib/services"],
       "@/utils": ["app/_lib/utils"],
       "@/validators": ["app/_lib/validators"],
       "@/configs": ["app/_lib/configs"],
