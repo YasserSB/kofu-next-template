@@ -3,6 +3,7 @@
 import { useCounter, usePokeList } from '@/app/_hooks';
 import React, { FC } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
+import { useTranslations } from 'next-intl';
 import { Icons } from '../../atoms';
 
 import { ExampleComponentsLoading } from './ExampleComponents.loading';
@@ -12,6 +13,7 @@ import { ExampleComponentsLayout } from './ExampleComponents.layout';
 
 export const ExampleComponents: FC = () => {
   const { data: pokeList, isLoading, isError } = usePokeList();
+  const t = useTranslations('Greetings');
   const {
     data: { value: counterValue },
     increment: incrementCounter,
@@ -39,7 +41,7 @@ export const ExampleComponents: FC = () => {
       <Icons name="fileIcon" fill="tomato" size={64} />
 
       <div className="flex flex-col items-center justify-center gap-4">
-        <p>~Counter~</p>
+        <p>{t('title')}</p>
         <div className="flex items-center justify-center gap-4">
           <button
             type="button"
