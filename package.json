@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "node .next/standalone/server.js",
-    "build:start": "next build; node .next/standalone/server.js",
+    "start": "cp -r public .next/standalone/; cp -r .next/static .next/standalone/.next/; node .next/standalone/server.js",
+    "build:start": "next build; cp -r public .next/standalone/; cp -r .next/static .next/standalone/.next/; node .next/standalone/server.js",
     "lint": "next lint",
     "lint:fix": "next lint --fix .",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md,yml,yaml}\"",
