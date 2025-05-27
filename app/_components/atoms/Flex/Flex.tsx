@@ -11,6 +11,7 @@ export const Flex: FC<IFlex> = ({
   items = 'stretch',
   direction = 'row',
   reverseDirection = false,
+  wrap = false,
   ...props
 }) => {
   const Component = as;
@@ -27,6 +28,9 @@ export const Flex: FC<IFlex> = ({
         'flex',
         // Direction
         flexDirection,
+
+        // Wrap
+        wrap && 'flex-wrap',
 
         // Justify
         justify === 'center' && 'justify-center',

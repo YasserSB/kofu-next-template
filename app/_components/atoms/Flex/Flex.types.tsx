@@ -12,5 +12,6 @@ export interface IFlex extends HTMLAttributes<HTMLElement> {
   items?: 'center' | 'baseline' | 'stretch' | 'start' | 'end';
   direction?: 'row' | 'col';
   reverseDirection?: boolean;
+  wrap?: boolean;
   as?: ElementType;
 }
