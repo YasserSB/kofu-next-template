@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { Tab, TabGroup, TabList, TabPanels } from '@headlessui/react';
+import { cn } from '@/app/_lib/utils';
 import { ITabs } from './CTabs.types';
 import { Card } from '../../atoms';
 
-export const CTabs: FC<ITabs> = ({ children, tabLabels }) => (
+export const CTabs: FC<ITabs> = ({ children, tabLabels, className }) => (
   <Card className="h-full w-full bg-transparent">
     <TabGroup className="flex h-full w-full flex-col">
       <TabList className="flex gap-1">
@@ -16,7 +17,12 @@ export const CTabs: FC<ITabs> = ({ children, tabLabels }) => (
           </Tab>
         ))}
       </TabList>
-      <TabPanels className="flex-1 *:h-full *:w-full *:flex-1 *:rounded-xl *:rounded-tl-none">
+      <TabPanels
+        className={cn(
+          'flex-1 *:h-full *:w-full *:flex-1 *:rounded-xl *:rounded-tl-none',
+          className,
+        )}
+      >
         {children}
       </TabPanels>
     </TabGroup>
