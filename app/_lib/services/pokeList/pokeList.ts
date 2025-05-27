@@ -11,7 +11,10 @@ export interface IgetPokeList {
 
 export const getPokeList = async (): Promise<IgetPokeList> =>
   new Promise((resolve, reject) => {
-    axiosInstance({ method: 'GET', url: `${URL}/pokemon/?limit=2000` })
+    axiosInstance({
+      method: 'GET',
+      url: `${URL}/pokemon/?limit=2000`,
+    })
       .then((response) => resolve(response.data))
       .catch((error) => reject(error));
   });

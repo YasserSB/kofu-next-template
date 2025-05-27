@@ -18,6 +18,7 @@ const eslintConfig = [
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended',
   ),
   {
     rules: {
@@ -31,17 +32,26 @@ const eslintConfig = [
       'react/jsx-props-no-spreading': 'off',
       'react/prop-types': 'off',
       'no-console': 'error',
+      'object-curly-newline': [
+        'error',
+        {
+          ObjectExpression: { consistent: true, multiline: true },
+          ObjectPattern: { consistent: true, multiline: true },
+          ImportDeclaration: 'never',
+          ExportDeclaration: { multiline: true, minProperties: 3 },
+        },
+      ],
       'no-param-reassign': [
         'error',
         {
           props: true,
-          ignorePropertyModificationsFor: ['state'], // <- tambahkan ini
+          ignorePropertyModificationsFor: ['state'],
         },
       ],
       'react/function-component-definition': [
         'error',
         {
-          namedComponents: 'arrow-function', // atau 'expression'
+          namedComponents: 'arrow-function',
           unnamedComponents: 'arrow-function',
         },
       ],
