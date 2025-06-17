@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
 };
 
 const withNextIntl = createNextIntlPlugin(
-  './app/_lib/configs/i18n/request-config/request-config.ts',
+  './app/_lib/configs/i18n/requestConfig/requestConfig.ts',
 );
 
 export default withNextIntl(nextConfig);

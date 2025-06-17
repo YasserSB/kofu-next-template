@@ -1,5 +1,9 @@
-import FileIcon from '@/assets/icons/file.svg';
+import icRoundMail from '@/assets/icons/ic_round-mail.svg';
+import majesticonsMapMarker from '@/assets/icons/majesticons_map-marker.svg';
+import uilAngleDown from '@/assets/icons/uil_angle-down.svg';
 
 export const iconMap = {
-  fileIcon: FileIcon,
+  icRoundMail,
+  majesticonsMapMarker,
+  uilAngleDown,
 };
