@@ -4,16 +4,22 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const { pathname } = new URL(request.url);
-  const cookieLocale = request.headers
-    .get('cookie')
-    ?.match(/locale=(\w{2})/)?.[1];
+  const cookieLocale =
+    request.headers.get('cookie')?.match(/locale=(\w{2})/)?.[1] ?? 'en';
 
   const isMissingLocale = !/^\/(en|id)(\/|$)/.test(pathname);
 
   if (cookieLocale && isMissingLocale) {
-    return NextResponse.redirect(
+    const response = NextResponse.redirect(
       new URL(`/${cookieLocale}${pathname}`, request.url),
     );
+    response.cookies.set({
+      name: 'locale',
+      value: cookieLocale,
+      path: '/',
+      maxAge: 60 * 60 * 24 * 365,
+    });
+    return response;
   }
 
   return createMiddleware(nextIntlRouting)(request);
