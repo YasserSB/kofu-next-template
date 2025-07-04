@@ -1,8 +1,5 @@
 'use client';
 
-import React, { FC, useCallback, useMemo } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
-import Image from 'next/image';
 import {
   Listbox,
   ListboxButton,
@@ -10,7 +7,10 @@ import {
   ListboxOptions,
   Transition,
 } from '@headlessui/react';
-import { useLocalStorage } from '@/app/_hooks';
+import Cookies from 'js-cookie';
+import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { Icons } from '../../atoms';
 import { ChangeLocaleOptionLoading } from './ChangeLocaleOption.loading';
 import { TChangeLocaleOption } from './ChangeLocaleOption.type';
@@ -20,46 +20,55 @@ const locales = [
   { code: 'id', label: 'Bahasa Indonesia', flag: '/flags/indonesia.jpeg' },
 ];
 
-const getLocaleByCode = (code: string) =>
-  locales.find((l) => l.code === code) ?? locales[0];
+const getLocaleByCode = (code?: string) => locales.find((l) => l.code === code);
+
+type TSelectedLocale = (typeof locales)[number];
 
 export const ChangeLocaleOption: FC<TChangeLocaleOption> = () => {
-  const [localeCode, setLocaleCode] = useLocalStorage<null | string>(
-    'locale',
-    null,
-  );
   const pathname = usePathname();
   const router = useRouter();
 
+  const [selectedLocale, setSelectedLocale] = useState<
+    TSelectedLocale | undefined
+  >(undefined);
+
+  useEffect(() => {
+    const locale = Cookies.get('locale');
+    setSelectedLocale(getLocaleByCode(locale));
+  }, []);
+
   const handleLocaleChange = useCallback(
-    (locale: (typeof locales)[number]) => {
-      setLocaleCode(locale.code ?? 'en');
-      document.cookie = `locale=${locale.code}; path=/; max-age=31536000`;
-      const newPath = pathname.replace(/^\/(en|id)/, `/${locale.code}`);
+    (locale: TSelectedLocale) => {
+      Cookies.set('locale', locale.code);
+
+      // ganti segment pertama di path jadi locale baru
+      const segments = pathname.split('/');
+      segments[1] = locale.code;
+      const newPath = segments.join('/');
+
       router.replace(newPath);
     },
-    [pathname, setLocaleCode, router],
+    [pathname, router],
   );
 
-  const selectedLocale = useMemo(
-    () => getLocaleByCode(localeCode ?? 'en'),
-    [localeCode],
-  );
-
-  if (localeCode === null) {
+  if (!selectedLocale) {
     return <ChangeLocaleOptionLoading />;
   }
 
   return (
     <Listbox value={selectedLocale} onChange={handleLocaleChange}>
-      <div className="relative w-fit cursor-pointer">
+      <div className="relative cursor-pointer">
         <ListboxButton
           type="button"
-          className="flex cursor-pointer items-center gap-3"
+          className="gap-md flex cursor-pointer items-center"
         >
           <Image src={selectedLocale.flag} width={28} height={17} alt="" />
-          <span>{selectedLocale.label}</span>
-          <Icons name="uilAngleDown" className="fill-gray-900" />
+          <span className="ml-1">{selectedLocale.label}</span>
+          <Icons
+            name="uilAngleDown"
+            className="fill-text-invert min-h-3.5 min-w-3.5"
+            size={14}
+          />
         </ListboxButton>
         <Transition
           enter="transition ease-out duration-100"
@@ -69,15 +78,15 @@ export const ChangeLocaleOption: FC<TChangeLocaleOption> = () => {
           leaveFrom="opacity-100 translate-y-0"
           leaveTo="opacity-0 -translate-y-2"
         >
-          <ListboxOptions className="absolute z-10 mt-2 min-w-max rounded border border-gray-50 bg-gray-900 shadow-lg">
+          <ListboxOptions className="bg-surface-invert border-border-secondary absolute left-0 z-10 mt-2 min-w-max rounded border shadow-lg">
             {locales.map((locale) => (
               <ListboxOption
                 key={locale.code}
                 value={locale}
-                className="flex cursor-pointer items-center gap-2 px-4 py-2 whitespace-nowrap hover:bg-gray-100/5"
+                className="hover:bg-text-invert/5 flex cursor-pointer items-center gap-2 px-4 py-2 whitespace-nowrap"
               >
                 <Image src={locale.flag} width={28} height={17} alt="" />
-                <span className="text-neutral-100">{locale.label}</span>
+                <span>{locale.label}</span>
               </ListboxOption>
             ))}
           </ListboxOptions>
