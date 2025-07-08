@@ -23,6 +23,17 @@ It is project template for `NextJS` projects
 - Dont use slash at end of url in env for concistency.
 - Use internationalization for string UI.
 
+### Indexing
+
+Index from 0 to +50 with step 10 (from tailwind)
+
+- 0 for base index
+- 10 for sticky element index (header / sidebar)
+- 20 for modal overlay
+- 30 for content modal
+- 40 for toaster / notification
+- 50 for verbose up important element
+
 ## How to run
 
 1. Open terminal an type: `yarn`.
@@ -35,4 +46,4 @@ It is project template for `NextJS` projects
 
 ## Appendix
 
-Use Wisely
+- Node version: v22.15.0
